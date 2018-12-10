@@ -28,4 +28,17 @@ router.post('/salonesprofesoresvacio', (req, res, next) => {
   });
   });
 
+  router.get('/horariosprofesores', (req, res, next) => {
+    Promise.resolve()
+    .then(function () {    
+        return salonController.getHorarios();
+    })
+  .then(function (data) {
+  res.json({success: true, dato:data, msg:"Operacion exitosa"});
+  })
+  .catch(function (err) {
+  res.json({success: false, msg:"Operacion denegada"});
+  });
+  });
+
   module.exports = router;
